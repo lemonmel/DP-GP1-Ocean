@@ -1,2 +1,4 @@
-# Aquarium
-Simple, Interactive Aquarium with JavaFX
+# Design Pattern - GP1 - Ocean
+
+Main class: MyOceanApp.java
+Please ensure JavaFX is installed to run
