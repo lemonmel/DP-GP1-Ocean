@@ -2,20 +2,12 @@ package ocean;
 
 import javafx.scene.image.Image;
 
-public class PufferFish extends OceanCreature {
-	private Image leftimage, rightimage;
+public class Fish extends OceanCreature {
 
-	public PufferFish() {
-		leftimage = new Image("images/fishL.gif", fishWidth, fishHeight, true, true);
-		rightimage = new Image("images/fishR.gif", fishWidth, fishHeight, true, true);
-	}
-
-	public Image leftImage() {
-		return leftimage;
-	}
-
-	public Image rightImage() {
-		return rightimage;
+	public Fish() {
+		fishSize = 180;
+		leftimage = new Image("images/mackeralL.gif", fishSize, fishSize, true, true);
+		rightimage = new Image("images/mackeralR.gif", fishSize, fishSize, true, true);
 	}
 
 	@Override

@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+.menu-bar {
+    -fx-border-color: black; 
+    -fx-border-width: 3;
+    -fx-opacity: 0.8
+}
+
+/* Menu Bar Styling */
+.menu-bar .label {
+    -fx-font-size: 16pt;
+    -fx-font-family: 'VT323', monospace;
+    -fx-text-fill: black;
+    -fx-font-weight: bold; 
+}
+
+.menu-bar .menu:hover,
+.menu-bar .menu:focused,
+.menu-bar .menu:showing{
+    -fx-background: black;
+}
+
+.menu-bar .menu:hover .label,
+.menu-bar .menu:showing .label{
+    -fx-background: black ;
+    -fx-text-fill: white;
+}
+
+/* Menu Item Styling */
+.menu-bar .menu:showing .menu-item .label{
+    -fx-text-fill: black;
+}
+
+.menu-bar .menu:showing .menu-item:hover,
+.menu-bar .menu:showing .menu-item:focused{
+    -fx-background-color: black;
+}
+
+.menu-bar .menu:showing .menu-item:hover .label,
+.menu-bar .menu:showing .menu-item:focused .label{
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}

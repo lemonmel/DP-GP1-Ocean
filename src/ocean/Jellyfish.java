@@ -3,34 +3,39 @@ package ocean;
 import javafx.scene.image.Image;
 
 public class Jellyfish extends OceanCreature {
-   private Image leftimage, rightimage;
+   private int floating = 0;
+   private int stay = 0;
 
    public Jellyfish() {
-      leftimage = new Image("images/jellyfish.gif", 100, 100, true, true);
-      rightimage = new Image("images/jellyfish.gif", 100, 100, true, true);
-   }
-
-   public Image leftImage() {
-      return leftimage;
-   }
-
-   public Image rightImage() {
-      return rightimage;
+      fishSize = 100;
+      leftimage = new Image("images/jellyfish.gif", fishSize, fishSize, true, true);
+      rightimage = leftimage;
    }
 
    @Override
    public void move(double tankheight, double tankwidth) {
       Image image = getImage();
       view.setImage(image);
-      double x = moveXY(view.getX(), xspeed, xDirectionChangePct);
-      double y = moveXY(view.getY(), yspeed, yDirectionChangePct);
-      if (legalMove(x, image.getWidth(), tankwidth))
-         view.setX(x);
-      else
-         changeXdirection();
-      if (legalMove(y, image.getHeight(), tankheight))
-         view.setY(y);
-      else
-         changeYdirection();
+      if (floating < 350) {
+         floating += 1;
+         double x = moveXY(view.getX(), xspeed, xDirectionChangePct);
+         double y = moveXY(view.getY(), yspeed, yDirectionChangePct);
+         if (legalMove(x, image.getWidth(), tankwidth)) {
+            view.setX(x);
+         } else {
+            changeXdirection();
+         }
+         if (legalMove(y, image.getHeight(), tankheight)) {
+            view.setY(y);
+         } else {
+            changeYdirection();
+         }
+      } else {
+         stay += 1;
+         if (stay >= 100) { // if rest enough then continue walking
+            floating = 0;
+            stay = 0;
+         }
+      }
    }
 }
