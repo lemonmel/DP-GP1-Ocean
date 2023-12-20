@@ -4,17 +4,17 @@ import javafx.animation.AnimationTimer;
 import javafx.scene.layout.Pane;
 
 public class CreatureAnimation extends AnimationTimer {
-   private Ocean tank;
+   private Ocean ocean;
    private Pane contents;
 
-   public CreatureAnimation(Ocean tank, Pane p) {
-      this.tank = tank;
+   public CreatureAnimation(Ocean ocean, Pane p) {
+      this.ocean = ocean;
       contents = p;
    }
 
    public void handle(long now) {
       double h = contents.getLayoutBounds().getHeight();
       double w = contents.getLayoutBounds().getWidth();
-      tank.move(h, w);
+      ocean.move(h, w);
    }
 }

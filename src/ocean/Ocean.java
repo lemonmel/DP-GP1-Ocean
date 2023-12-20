@@ -7,7 +7,6 @@ public class Ocean {
    private static Ocean uniqueInstance = new Ocean();
    List<OceanCreature> oceanCreatures = new ArrayList<>();
    Pane pane = new Pane();
-   boolean suspended = false;
 
    private Ocean() {
    }
@@ -25,18 +24,9 @@ public class Ocean {
       pane.getChildren().add(oc.getView());
    }
 
-   public void startAnimation() {
-      suspended = false;
-   }
-
-   public void stopAnimation() {
-      suspended = true;
-   }
-
    public void move(double height, double width) {
-      if (!suspended) {
-         for (OceanCreature f : oceanCreatures)
-            f.move(height, width);
+      for (OceanCreature oc : oceanCreatures) {
+         oc.move(height, width);
       }
    }
 }

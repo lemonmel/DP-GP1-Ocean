@@ -3,30 +3,36 @@ package ocean;
 import javafx.scene.image.Image;
 
 public class Crab extends OceanCreature {
-   private Image leftimage, rightimage;
+   private int walking = 0;
+   private int stay = 0;
 
    public Crab() {
-      leftimage = new Image("images/crab.gif", fishWidth, fishHeight, true, true);
-      rightimage = new Image("images/crab.gif", fishWidth, fishHeight, true, true);
-   }
-
-   public Image leftImage() {
-      return leftimage;
-   }
-
-   public Image rightImage() {
-      return rightimage;
+      xspeed = 0.8;
+      fishSize = 100;
+      leftimage = new Image("images/crab.gif", fishSize, fishSize, true, true);
+      rightimage = leftimage;
+      view.setX(MyOceanApp.INIT_TANK_WD / 3); // the initial fish location
+      view.setY(MyOceanApp.INIT_TANK_HT - leftimage.getHeight());
    }
 
    @Override
    public void move(double tankheight, double tankwidth) {
       Image image = getImage();
       view.setImage(image);
-      double x = moveXY(view.getX(), xspeed, xDirectionChangePct);
-      if (legalMove(x, image.getWidth(), tankwidth)) {
-         view.setX(x);
+      if (walking < 500) {
+         double x = moveXY(view.getX(), xspeed, xDirectionChangePct);
+         if (legalMove(x, image.getWidth(), tankwidth)) {
+            walking += 1;
+            view.setX(x);
+         } else {
+            changeXdirection();
+         }
       } else {
-         changeXdirection();
+         stay += 1;
+         if (stay >= 100) { // if rest enough then continue walking
+            walking = 0;
+            stay = 0;
+         }
       }
    }
 }
