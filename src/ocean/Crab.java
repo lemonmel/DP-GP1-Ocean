@@ -11,8 +11,7 @@ public class Crab extends OceanCreature {
       fishSize = 100;
       leftimage = new Image("images/crab.gif", fishSize, fishSize, true, true);
       rightimage = leftimage;
-      view.setX(MyOceanApp.INIT_TANK_WD / 3); // the initial fish location
-      view.setY(MyOceanApp.INIT_TANK_HT - leftimage.getHeight());
+      view.setY(Ocean.getInstance().getOceanPane().getLayoutBounds().getHeight() - leftimage.getHeight());
    }
 
    @Override
@@ -21,7 +20,7 @@ public class Crab extends OceanCreature {
       view.setImage(image);
       if (walking < 500) {
          double x = moveXY(view.getX(), xspeed, xDirectionChangePct);
-         if (legalMove(x, image.getWidth(), tankwidth)) {
+         if (legalXMove(x, image.getWidth(), tankwidth)) {
             walking += 1;
             view.setX(x);
          } else {
