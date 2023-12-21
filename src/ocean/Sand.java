@@ -20,7 +20,7 @@ public class Sand implements TerrainStrategy {
 
         
         List<Node> tempChildren = new ArrayList<>(oceanPane.getChildren());
-        tempChildren.remove(1);
+        
         
         Image image = new Image("images/sand.png");
         ImageView imageView = new ImageView(image);

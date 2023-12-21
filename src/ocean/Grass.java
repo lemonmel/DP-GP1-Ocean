@@ -19,7 +19,7 @@ public class Grass implements TerrainStrategy {
 
     public void applyFloor(ImageView imageBackImage) {
         List<Node> tempChildren = new ArrayList<>(oceanPane.getChildren());
-        tempChildren.remove(1);
+
 
         Image image = new Image("images/grass.png");
         ImageView imageView = new ImageView(image);
