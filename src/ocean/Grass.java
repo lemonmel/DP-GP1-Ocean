@@ -10,19 +10,13 @@ import javafx.scene.layout.Pane;
 
 public class Grass implements TerrainStrategy {
     private final Pane oceanPane;
-    private final HBox container;
 
     public Grass(Pane oceanPane) {
         this.oceanPane = oceanPane;
-        this.container = new HBox();
-       // this.oceanPane.getChildren().add(container);
+
     }
 
     public void applyFloor(ImageView imageBackImage) {
-        // if (!oceanPane.getChildren().isEmpty() && oceanPane.getChildren().get(0) instanceof ImageView) {
-        //     oceanPane.getChildren().remove(0);
-        //     //container.getChildren().clear();
-        // }
         oceanPane.getChildren().removeIf(node -> node instanceof ImageView);
         Image image = new Image("images/grasses.png");
         ImageView imageview = new ImageView(image);

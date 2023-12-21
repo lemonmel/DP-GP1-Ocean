@@ -26,7 +26,7 @@ public class Night implements BackgroundStrategy {
         backgroundImageView.setFitHeight(oceanPane.getHeight());
 
         ColorAdjust colorAdjust = new ColorAdjust();
-        colorAdjust.setBrightness(-0.8);
+        colorAdjust.setBrightness(-0.8); 
         colorAdjust.setContrast(1);
         colorAdjust.setSaturation(2.0);
         backgroundImageView.setEffect(colorAdjust);
