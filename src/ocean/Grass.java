@@ -20,7 +20,6 @@ public class Grass implements TerrainStrategy {
     public void applyFloor(ImageView imageBackImage) {
         List<Node> tempChildren = new ArrayList<>(oceanPane.getChildren());
 
-
         Image image = new Image("images/grass.png");
         ImageView imageView = new ImageView(image);
         imageView.setFitWidth(oceanPane.getWidth());
@@ -28,7 +27,12 @@ public class Grass implements TerrainStrategy {
         imageView.setLayoutY(oceanPane.getHeight() - imageView.getFitHeight());
     
  
-        oceanPane.getChildren().set(1, imageView);
+        if (oceanPane.getChildren().size() >2) {
+            oceanPane.getChildren().set(1, imageView);
+        } else {
+            // If there are less than two children, simply add the new ImageView
+            oceanPane.getChildren().add(1,imageView);
+        }
     
         // Print information for debugging
         System.out.println("Children size: " + oceanPane.getChildren().size());
