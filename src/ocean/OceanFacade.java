@@ -7,7 +7,6 @@ public class OceanFacade {
     OceanCreatureFactory factory;
     Ocean ocean;
     BackgroundStrategy backgroundStrategy;
-    private Image backgroundImage;
     TerrainStrategy terrainStrategy;
 
     public OceanFacade() {
@@ -36,13 +35,13 @@ public class OceanFacade {
         ocean.performBackground();
     }
 
-    public void setCoral(Pane oceanPane) {
+    public void setSand(Pane oceanPane) {
         terrainStrategy = new Sand(oceanPane);
         ocean.setTerrainStrategy(terrainStrategy);
         ocean.performFloor();
     }
 
-    public void setSeaweed(Pane oceanPane) {
+    public void setGrass(Pane oceanPane) {
         terrainStrategy = new Grass(oceanPane);
         ocean.setTerrainStrategy(terrainStrategy);
         ocean.performFloor();

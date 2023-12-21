@@ -19,7 +19,7 @@ public class Night implements BackgroundStrategy {
     public void applyBackground() {
         if (!oceanPane.getChildren().isEmpty() && oceanPane.getChildren().get(0) instanceof ImageView) {
             oceanPane.getChildren().remove(0);
-        }
+        }  
         backgroundImageView = new ImageView(backgroundImage);
 
         backgroundImageView.setFitWidth(oceanPane.getWidth());

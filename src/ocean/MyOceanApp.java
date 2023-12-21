@@ -31,6 +31,7 @@ public class MyOceanApp extends Application {
 
       OceanFacade oceanFacade = new OceanFacade();
       p = oceanFacade.getOceanPane();
+      oceanFacade.setDaytimeStrategy(p, backgroundImage);
 
       // Load the image for the background
       backgroundImage = new Image("/images/sea-background-2.gif");
@@ -46,7 +47,6 @@ public class MyOceanApp extends Application {
                   false,
                   true,
                   false));
-
       p.setBackground(new Background(background));
       MenuBar bar = createMenuBar(oceanFacade);
       p.getChildren().add(bar);
@@ -79,9 +79,9 @@ public class MyOceanApp extends Application {
 
       Menu changeTerrain = new Menu("> Change Terrain");
       MenuItem sand = new MenuItem("Sandy");
-      sand.setOnAction(e -> facade.setCoral(p));
+      sand.setOnAction(e -> facade.setSand(p));
       MenuItem grass = new MenuItem("Grass");
-      grass.setOnAction(e -> facade.setSeaweed(p));
+      grass.setOnAction(e -> facade.setGrass(p));
       MenuItem rock = new MenuItem("Rocky");
       rock.setOnAction(e -> facade.setRock(p));
       changeTerrain.getItems().addAll(sand, grass,rock);
