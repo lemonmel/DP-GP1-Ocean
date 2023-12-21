@@ -40,7 +40,7 @@ public class Sand implements TerrainStrategy {
         System.out.println("Children contents: " + oceanPane.getChildren());
 
         tempChildren.stream()
-                .filter(node -> node instanceof ImageView && oceanPane.getChildren().indexOf(node) == 1)
+                .filter(node -> !(node instanceof ImageView) && !oceanPane.getChildren().contains(node))
                 .forEach(oceanPane.getChildren()::add);
     }
 }

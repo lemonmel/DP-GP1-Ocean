@@ -40,7 +40,7 @@ public class Grass implements TerrainStrategy {
     
         // Add back the original children except for ImageView instances and duplicates
         tempChildren.stream()
-                .filter(node -> node instanceof ImageView && oceanPane.getChildren().indexOf(node) == 1)
+                .filter(node -> !(node instanceof ImageView) && !oceanPane.getChildren().contains(node))
                 .forEach(oceanPane.getChildren()::add);
     }
     }
