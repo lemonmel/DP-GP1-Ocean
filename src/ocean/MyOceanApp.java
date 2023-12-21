@@ -18,6 +18,8 @@ import javafx.scene.text.Font;
 public class MyOceanApp extends Application {
    public static double INIT_TANK_HT = 1000;
    public static double INIT_TANK_WD = 710;
+   Pane p;
+   Image backgroundImage;
 
    public void start(Stage stage) {
       // String path = "background-music.mp3";
@@ -28,10 +30,10 @@ public class MyOceanApp extends Application {
       Font.loadFont(getClass().getResourceAsStream("/resources/SFPixelate.ttf"), 14);
 
       OceanFacade oceanFacade = new OceanFacade();
-      Pane p = oceanFacade.getOceanPane();
+      p = oceanFacade.getOceanPane();
 
       // Load the image for the background
-      Image backgroundImage = new Image("/images/sea-background-2.gif");
+      backgroundImage = new Image("/images/sea-background-2.gif");
       BackgroundImage background = new BackgroundImage(
             backgroundImage,
             BackgroundRepeat.NO_REPEAT,
@@ -76,7 +78,21 @@ public class MyOceanApp extends Application {
       createCreatures.getItems().addAll(puffer, crab, jellyfish, anchovy, turtle, shark);
 
       Menu changeTerrain = new Menu("> Change Terrain");
+      MenuItem sand = new MenuItem("Sandy");
+      sand.setOnAction(e -> facade.setCoral(p));
+      MenuItem grass = new MenuItem("Grass");
+      grass.setOnAction(e -> facade.setSeaweed(p));
+      MenuItem rock = new MenuItem("Rocky");
+      rock.setOnAction(e -> facade.setRock(p));
+      changeTerrain.getItems().addAll(sand, grass,rock);
+
       Menu changeMode = new Menu("> Change Mode");
+      MenuItem day = new MenuItem("Day Mode");
+      day.setOnAction(e -> facade.setDaytimeStrategy(p, backgroundImage));
+      MenuItem night = new MenuItem("Night Mode");
+      night.setOnAction(e -> facade.setNighttimeStrategy(p, backgroundImage));
+      changeMode.getItems().addAll(day, night);
+
       Menu changeColour = new Menu("> Change Colour");
       Menu fish = new Menu("> Fishing");
       MenuBar bar = new MenuBar();
