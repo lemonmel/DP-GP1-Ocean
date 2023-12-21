@@ -16,12 +16,12 @@ public class Fish extends OceanCreature {
 		view.setImage(image);
 		double x = moveXY(view.getX(), xspeed, xDirectionChangePct);
 		double y = moveXY(view.getY(), yspeed, yDirectionChangePct);
-		if (legalMove(x, image.getWidth(), tankwidth)) {
+		if (legalXMove(x, image.getWidth(), tankwidth)) {
 			view.setX(x);
 		} else {
 			changeXdirection();
 		}
-		if (legalMove(y, image.getHeight(), tankheight)) {
+		if (legalYMove(y, image.getHeight(), tankheight)) {
 			view.setY(y);
 		} else {
 			changeYdirection();

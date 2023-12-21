@@ -16,8 +16,8 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Font;
 
 public class MyOceanApp extends Application {
-   public static double INIT_TANK_HT = 540;
-   public static double INIT_TANK_WD = 960;
+   public static double INIT_TANK_HT = 1000;
+   public static double INIT_TANK_WD = 710;
 
    public void start(Stage stage) {
       // String path = "background-music.mp3";
@@ -31,7 +31,7 @@ public class MyOceanApp extends Application {
       Pane p = oceanFacade.getOceanPane();
 
       // Load the image for the background
-      Image backgroundImage = new Image("/images/sea-background.jpg");
+      Image backgroundImage = new Image("/images/sea-background-2.gif");
       BackgroundImage background = new BackgroundImage(
             backgroundImage,
             BackgroundRepeat.NO_REPEAT,
