@@ -13,6 +13,14 @@ public class Crab extends OceanCreature {
       rightimage = leftimage;
       view.setY(Ocean.getInstance().getOceanPane().getLayoutBounds().getHeight() - leftimage.getHeight());
    }
+   
+	public void setLeftImage(Image leftimage){
+		this.leftimage = leftimage;
+	}
+
+	public void setRightImage(Image rightimage){
+		this.rightimage = rightimage;
+	}
 
    @Override
    public void move(double tankheight, double tankwidth) {

@@ -12,6 +12,14 @@ public class Jellyfish extends OceanCreature {
       rightimage = leftimage;
    }
 
+   public void setLeftImage(Image leftimage){
+		this.leftimage = leftimage;
+	}
+
+	public void setRightImage(Image rightimage){
+		this.rightimage = rightimage;
+	}
+   
    @Override
    public void move(double tankheight, double tankwidth) {
       Image image = getImage();
