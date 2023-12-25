@@ -10,6 +10,7 @@ public abstract class OceanCreature {
 	Image leftimage, rightimage;
 	double fishSize;
 	ImageView view = new ImageView(); // holds the image and current position
+	OceanCreatureType type;
 
 	public OceanCreature() {
 		view.setX(MyOceanApp.INIT_TANK_WD / 10); // the initial fish location
@@ -24,6 +25,21 @@ public abstract class OceanCreature {
 
 	public Image getImage() {
 		return xspeed >= 0 ? rightimage : leftimage;
+	}
+
+	public void setImageByPath(String path) {
+		var image = createImageByPath(path);
+		this.leftimage = image;
+		this.rightimage = image;
+	}
+
+	public void setImageByPath(String leftImagePath, String rightImagePath) {
+		this.leftimage = createImageByPath(leftImagePath);
+		this.rightimage = createImageByPath(rightImagePath);
+	}
+
+	public Image createImageByPath(String path) {
+		return new Image(path, this.fishSize, this.fishSize, true, true);
 	}
 
 	public double moveXY(double pos, double speed, double pct) {
