@@ -1,12 +1,17 @@
 package ocean;
 
 import java.util.*;
+
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 public class Ocean {
    private static Ocean uniqueInstance = new Ocean();
    List<OceanCreature> oceanCreatures = new ArrayList<>();
    Pane pane = new Pane();
+   BackgroundStrategy backgroundStrategy;
+   TerrainStrategy terrainStrategy;
 
    private Ocean() {
    }
@@ -28,5 +33,25 @@ public class Ocean {
       for (OceanCreature oc : oceanCreatures) {
          oc.move(height, width);
       }
+   }
+
+   public void performBackground() {
+      backgroundStrategy.applyBackground();
+   }
+
+   public void setBackgroundStrategy(BackgroundStrategy bs) {
+      backgroundStrategy = bs;
+   }
+
+   public void performFloor() {
+      terrainStrategy.applyFloor(getCurrentBackgroundImage());
+   }
+
+   public void setTerrainStrategy(TerrainStrategy ts) {
+      terrainStrategy = ts;
+   }
+
+   public ImageView getCurrentBackgroundImage() {
+      return backgroundStrategy.getBackgroundImage();
    }
 }
