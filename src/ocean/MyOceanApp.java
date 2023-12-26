@@ -17,7 +17,7 @@ import javafx.scene.text.Font;
 
 public class MyOceanApp extends Application {
    public static double INIT_TANK_HT = 1000;
-   public static double INIT_TANK_WD = 710;
+   public static double INIT_TANK_WD = 698;
 
    public void start(Stage stage) {
       // String path = "background-music.mp3";
@@ -60,7 +60,7 @@ public class MyOceanApp extends Application {
    }
 
    private MenuBar createMenuBar(OceanFacade facade) {
-      Menu createCreatures = new Menu("> Add Creatures");
+      Menu createCreatures = new Menu("> Add ");
       MenuItem puffer = new MenuItem("Mackeral");
       puffer.setOnAction(e -> facade.addOceanCreature(1));
       MenuItem crab = new MenuItem("Crab");
