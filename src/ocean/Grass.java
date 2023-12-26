@@ -10,7 +10,6 @@ import javafx.scene.layout.Pane;
 
 public class Grass implements TerrainStrategy {
     private final Pane oceanPane;
-    private ImageView imageview;
 
     public Grass(Pane oceanPane) {
         this.oceanPane = oceanPane;
