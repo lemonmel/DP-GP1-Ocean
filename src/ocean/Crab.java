@@ -55,7 +55,9 @@ public class Crab extends OceanCreature {
       }
    }
 
-   public void ChangeColor(Color color) {
+   @Override
+   public void changeColor(Color color) {
+      addCurrentImagesToHistory();
       var path = colorImagePathMap.get(color);
       setImageByPath(path);
    }

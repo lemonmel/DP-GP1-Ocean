@@ -1,6 +1,12 @@
 package ocean;
 
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.*;
+import javafx.scene.paint.Color;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
 
 public abstract class OceanCreature {
 	double xspeed = 0.5;
@@ -11,6 +17,8 @@ public abstract class OceanCreature {
 	double fishSize;
 	ImageView view = new ImageView(); // holds the image and current position
 	OceanCreatureType type;
+
+	Stack<List<String>> imagePathsHistory = new Stack<>();
 
 	public OceanCreature() {
 		view.setX(MyOceanApp.INIT_TANK_WD / 10); // the initial fish location
@@ -67,5 +75,25 @@ public abstract class OceanCreature {
 
 	private boolean changesDirection(double frequency) {
 		return Math.random() * 100 < frequency;
+	}
+
+	public void changeHue(double hue) {
+		ColorAdjust colorAdjust = new ColorAdjust();
+		colorAdjust.setHue(hue);
+		view.setEffect(colorAdjust);
+	}
+
+	public abstract void changeColor(Color color);
+
+	public void undoColor() {
+		var lastImagePaths = imagePathsHistory.pop();
+		setImageByPath(lastImagePaths.getFirst(), lastImagePaths.getLast());
+	}
+
+	public void addCurrentImagesToHistory() {
+		List<String> imagePaths = new ArrayList<>();
+		imagePaths.add(leftimage.getUrl());
+		imagePaths.add(rightimage.getUrl());
+		imagePathsHistory.add(imagePaths);
 	}
 }

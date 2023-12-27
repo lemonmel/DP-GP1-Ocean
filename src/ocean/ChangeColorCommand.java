@@ -23,14 +23,18 @@ public class ChangeColorCommand implements Command{
     public void execute() {
         var selectedColorMenuItem = (MenuItem) this.event.getSource();
         var oceanCreatureMenu = selectedColorMenuItem.getParentMenu().getParentMenu();
-        switch (oceanCreatureMenu.getText()) {
-            case "Crab" -> {
-                var crabs = getManyOceanCreaturesOfType(OceanCreatureType.Crab, this.oceanCreatures);
-                for (var newCrab : crabs) {
-                    ((Crab) newCrab).ChangeColor(this.color);
-                }
-            }
+        List<OceanCreature> oceanCreatures = switch (oceanCreatureMenu.getText()) {
+            case "Anchovy" -> getManyOceanCreaturesOfType(OceanCreatureType.Anchovy, this.oceanCreatures);
+            case "Crab" -> getManyOceanCreaturesOfType(OceanCreatureType.Crab, this.oceanCreatures);
+            case "Mackeral" -> getManyOceanCreaturesOfType(OceanCreatureType.Fish, this.oceanCreatures);
+            case "Jellyfish" -> getManyOceanCreaturesOfType(OceanCreatureType.JellyFish, this.oceanCreatures);
+            case "Shark" -> getManyOceanCreaturesOfType(OceanCreatureType.Shark, this.oceanCreatures);
+            case "Turtle" -> getManyOceanCreaturesOfType(OceanCreatureType.Turtle, this.oceanCreatures);
             default -> throw new IllegalStateException("Unexpected value: " + oceanCreatureMenu.getText());
+        };
+
+        for (OceanCreature oceanCreature : oceanCreatures) {
+            oceanCreature.changeColor(color);
         }
     }
 

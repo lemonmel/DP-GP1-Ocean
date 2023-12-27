@@ -1,8 +1,20 @@
 package ocean;
 
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+
+import java.util.Map;
 
 public class Anchovy extends OceanCreature {
+
+   private final static Map<Color, String> colorImagePathMap = Map.of(
+           Color.RED, "images/crab-red.gif",
+           Color.ORANGE, "images/crab-orange.gif",
+           Color.YELLOW, "images/crab-yellow.gif",
+           Color.GREEN, "images/crab-green.gif",
+           Color.BLUE, "images/crab-blue.gif",
+           Color.PURPLE, "images/crab-purple.gif"
+   );
 
    public Anchovy() {
       xspeed = 0.8;
@@ -28,5 +40,12 @@ public class Anchovy extends OceanCreature {
       } else {
          changeYdirection();
       }
+   }
+
+   @Override
+   public void changeColor(Color color) {
+      addCurrentImagesToHistory();
+      var path = colorImagePathMap.get(color);
+      setImageByPath(path);
    }
 }

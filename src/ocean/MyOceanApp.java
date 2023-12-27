@@ -71,17 +71,17 @@ public class MyOceanApp extends Application {
    private MenuBar createMenuBar(OceanFacade facade) {
       Menu createCreatures = new Menu("> Add ");
       MenuItem puffer = new MenuItem("Mackeral");
-      puffer.setOnAction(e -> facade.addOceanCreature(1));
+      puffer.setOnAction(e -> addOceanCreature(facade, 1));
       MenuItem crab = new MenuItem("Crab");
-      crab.setOnAction(e -> facade.addOceanCreature(2));
+      crab.setOnAction(e -> addOceanCreature(facade, 2));
       MenuItem jellyfish = new MenuItem("Jellyfish");
-      jellyfish.setOnAction(e -> facade.addOceanCreature(3));
+      jellyfish.setOnAction(e -> addOceanCreature(facade, 3));
       MenuItem anchovy = new MenuItem("Anchovy");
-      anchovy.setOnAction(e -> facade.addOceanCreature(4));
+      anchovy.setOnAction(e -> addOceanCreature(facade, 4));
       MenuItem turtle = new MenuItem("Turtle");
-      turtle.setOnAction(e -> facade.addOceanCreature(5));
+      turtle.setOnAction(e -> addOceanCreature(facade, 5));
       MenuItem shark = new MenuItem("Shark");
-      shark.setOnAction(e -> facade.addOceanCreature(6));
+      shark.setOnAction(e -> addOceanCreature(facade, 6));
       createCreatures.getItems().addAll(puffer, crab, jellyfish, anchovy, turtle, shark);
 
       Menu changeTerrain = new Menu("> Change Terrain");
@@ -132,7 +132,8 @@ public class MyOceanApp extends Application {
          }
 
          undoColor.setOnAction(e -> {
-            // Handle the action to undo color
+            Command undoColorCommand = new UndoColorCommand(oceanCreatures, e);
+            undoColorCommand.execute();
          });
 
          changeColourMenu.getItems().add(creatureMenu);
