@@ -116,7 +116,7 @@ public class MyOceanApp extends Application {
       Menu changeColourMenu = new Menu("> Change Colour");
       List<Menu> creatureMenus = createOceanCreatureMenus();
 
-      Color[] colors = {Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE, Color.PURPLE};
+      Color[] colors = {Color.RED, Color.ORANGE, Color.GREEN, Color.BLUE, Color.PURPLE};
       for (Menu creatureMenu : creatureMenus) {
          Menu addColor = new Menu("Add Color");
          MenuItem undoColor = new MenuItem("Undo Color");
