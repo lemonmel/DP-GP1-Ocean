@@ -9,16 +9,16 @@ import java.util.Map;
 public class Turtle extends OceanCreature {
 
    private final static Map<Color, List<String>> colorImagePathMap = Map.of(
-           Color.RED, List.of("images/crab-red.gif", "images/crab-red.gif"),
-           Color.ORANGE, List.of("images/crab-orange.gif", "images/crab-orange.gif"),
-           Color.YELLOW, List.of("images/crab-yellow.gif", "images/crab-yellow.gif"),
-           Color.GREEN, List.of("images/crab-green.gif", "images/crab-green.gif"),
-           Color.BLUE, List.of("images/crab-blue.gif", "images/crab-blue.gif"),
-           Color.PURPLE, List.of("images/crab-purple.gif", "images/crab-purple.gif")
+           Color.RED, List.of("images/turtleL-red.gif", "images/turtleR-red.gif"),
+           Color.ORANGE, List.of("images/turtleL-orange.gif", "images/turtleR-orange.gif"),
+           Color.GREEN, List.of("images/turtleL.gif", "images/turtleR.gif"),
+           Color.BLUE, List.of("images/turtleL-blue.gif", "images/turtleR-blue.gif"),
+           Color.PURPLE, List.of("images/turtleL-purple.gif", "images/turtleR-purple.gif")
    );
 
    public Turtle() {
       fishSize = 200;
+      type = OceanCreatureType.Turtle;
       leftimage = new Image("images/turtleL.gif", fishSize, fishSize, true, true);
       rightimage = new Image("images/turtleR.gif", fishSize, fishSize, true, true);
    }

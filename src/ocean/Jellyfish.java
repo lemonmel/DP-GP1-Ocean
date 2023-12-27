@@ -11,16 +11,16 @@ public class Jellyfish extends OceanCreature {
    private int stay = 0;
 
    private final static Map<Color, List<String>> colorImagePathMap = Map.of(
-           Color.RED, List.of("images/crab-red.gif", "images/crab-red.gif"),
-           Color.ORANGE, List.of("images/crab-orange.gif", "images/crab-orange.gif"),
-           Color.YELLOW, List.of("images/crab-yellow.gif", "images/crab-yellow.gif"),
-           Color.GREEN, List.of("images/crab-green.gif", "images/crab-green.gif"),
-           Color.BLUE, List.of("images/crab-blue.gif", "images/crab-blue.gif"),
-           Color.PURPLE, List.of("images/crab-purple.gif", "images/crab-purple.gif")
+           Color.RED, List.of("images/jellyfish-red.gif", "images/jellyfish-red.gif"),
+           Color.ORANGE, List.of("images/jellyfish-orange.gif", "images/jellyfish-orange.gif"),
+           Color.GREEN, List.of("images/jellyfish-green.gif", "images/jellyfish-green.gif"),
+           Color.BLUE, List.of("images/jellyfish-blue.gif", "images/jellyfish-blue.gif"),
+           Color.PURPLE, List.of("images/jellyfish.gif", "images/jellyfish.gif")
    );
 
    public Jellyfish() {
       fishSize = 100;
+      type = OceanCreatureType.JellyFish;
       leftimage = new Image("images/jellyfish.gif", fishSize, fishSize, true, true);
       rightimage = leftimage;
    }

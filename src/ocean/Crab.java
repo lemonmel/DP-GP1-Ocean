@@ -10,9 +10,8 @@ public class Crab extends OceanCreature {
    private int stay = 0;
 
    private final static Map<Color, List<String>> colorImagePathMap = Map.of(
-           Color.RED, List.of("images/crab-red.gif", "images/crab-red.gif"),
+           Color.RED, List.of("images/crab.gif", "images/crab.gif"),
            Color.ORANGE, List.of("images/crab-orange.gif", "images/crab-orange.gif"),
-           Color.YELLOW, List.of("images/crab-yellow.gif", "images/crab-yellow.gif"),
            Color.GREEN, List.of("images/crab-green.gif", "images/crab-green.gif"),
            Color.BLUE, List.of("images/crab-blue.gif", "images/crab-blue.gif"),
            Color.PURPLE, List.of("images/crab-purple.gif", "images/crab-purple.gif")
