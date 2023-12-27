@@ -3,19 +3,20 @@ package ocean;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 
+import java.util.List;
 import java.util.Map;
 
 public class Jellyfish extends OceanCreature {
    private int floating = 0;
    private int stay = 0;
 
-   private final static Map<Color, String> colorImagePathMap = Map.of(
-           Color.RED, "images/crab-red.gif",
-           Color.ORANGE, "images/crab-orange.gif",
-           Color.YELLOW, "images/crab-yellow.gif",
-           Color.GREEN, "images/crab-green.gif",
-           Color.BLUE, "images/crab-blue.gif",
-           Color.PURPLE, "images/crab-purple.gif"
+   private final static Map<Color, List<String>> colorImagePathMap = Map.of(
+           Color.RED, List.of("images/crab-red.gif", "images/crab-red.gif"),
+           Color.ORANGE, List.of("images/crab-orange.gif", "images/crab-orange.gif"),
+           Color.YELLOW, List.of("images/crab-yellow.gif", "images/crab-yellow.gif"),
+           Color.GREEN, List.of("images/crab-green.gif", "images/crab-green.gif"),
+           Color.BLUE, List.of("images/crab-blue.gif", "images/crab-blue.gif"),
+           Color.PURPLE, List.of("images/crab-purple.gif", "images/crab-purple.gif")
    );
 
    public Jellyfish() {
@@ -63,6 +64,6 @@ public class Jellyfish extends OceanCreature {
    public void changeColor(Color color) {
       addCurrentImagesToHistory();
       var path = colorImagePathMap.get(color);
-      setImageByPath(path);
+      setImageByPath(path.getFirst(), path.getLast());
    }
 }
