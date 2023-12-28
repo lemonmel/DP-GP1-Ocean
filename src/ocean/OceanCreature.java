@@ -77,12 +77,6 @@ public abstract class OceanCreature {
 		return Math.random() * 100 < frequency;
 	}
 
-	public void changeHue(double hue) {
-		ColorAdjust colorAdjust = new ColorAdjust();
-		colorAdjust.setHue(hue);
-		view.setEffect(colorAdjust);
-	}
-
 	public abstract void changeColor(Color color);
 
 	public void undoColor() {

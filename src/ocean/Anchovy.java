@@ -47,6 +47,6 @@ public class Anchovy extends OceanCreature {
    public void changeColor(Color color) {
       addCurrentImagesToHistory();
       var path = colorImagePathMap.get(color);
-      setImageByPath(path.getFirst(), path.getLast());
+      setImageByPath(path.get(0), path.get(1));
    }
 }
