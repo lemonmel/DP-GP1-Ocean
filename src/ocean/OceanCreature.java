@@ -80,6 +80,10 @@ public abstract class OceanCreature {
 	public abstract void changeColor(Color color);
 
 	public void undoColor() {
+		if (imagePathsHistory.isEmpty()) {
+			return;
+		}
+
 		var lastImagePaths = imagePathsHistory.pop();
 		setImageByPath(lastImagePaths.getFirst(), lastImagePaths.getLast());
 	}
