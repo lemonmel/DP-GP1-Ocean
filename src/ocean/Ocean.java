@@ -28,6 +28,11 @@ public class Ocean {
       pane.getChildren().add(oc.getView());
    }
 
+   //get fish
+   public List<OceanCreature> getOceanCreatures() {
+      return new ArrayList<>(oceanCreatures);
+   }
+
    public void move(double height, double width) {
       for (OceanCreature oc : oceanCreatures) {
          oc.move(height, width);
