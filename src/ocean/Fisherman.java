@@ -17,7 +17,7 @@ public class Fisherman {
     private ImageView fishermanView;
     private Pane displayPane;
 
-    public Fisherman(Pane oceanPane) {
+    public Fisherman(Pane oceanPane) {  //show fisherman position
         this.oceanPane = oceanPane;
         this.fishermanView = new ImageView(new Image(getClass().getResourceAsStream("/images/fisherman-1.gif")));
         this.fishermanView.setPreserveRatio(true);

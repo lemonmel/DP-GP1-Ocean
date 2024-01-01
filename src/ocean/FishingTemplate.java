@@ -22,42 +22,42 @@ public abstract class FishingTemplate {
         showFish();
     }
 
-    public void chooseMethod(Pane pane) {
-        ChoiceDialog<String> choiceDialog = new ChoiceDialog<>("Fishing Rod", "Fishing Rod", "Fishing Net");
-        choiceDialog.setTitle("Choose Fishing Method");
-        choiceDialog.setHeaderText("Select your fishing method:");
-        choiceDialog.setContentText("Choose:");
+    // public void chooseMethod(Pane pane) {
+    //     ChoiceDialog<String> choiceDialog = new ChoiceDialog<>("Fishing Rod", "Fishing Rod", "Fishing Net");
+    //     choiceDialog.setTitle("Choose Fishing Method");
+    //     choiceDialog.setHeaderText("Select your fishing method:");
+    //     choiceDialog.setContentText("Choose:");
 
-        String result = choiceDialog.showAndWait().orElse("Fishing Rod");
+    //     String result = choiceDialog.showAndWait().orElse("Fishing Rod");
 
-        ImageView imageView = new ImageView();
-        imageView.setPreserveRatio(true);
-        imageView.setFitHeight(100); // Adjust as needed
+    //     ImageView imageView = new ImageView();
+    //     imageView.setPreserveRatio(true);
+    //     imageView.setFitHeight(100); // Adjust as needed
 
-        if ("Fishing Rod".equals(result)) {
-            imageView.setImage(new Image("/src/images/fisherman-2.gif"));
-        } else {
-            imageView.setImage(new Image("/src/images/fishingnet.gif"));
-        }
+    //     if ("Fishing Rod".equals(result)) {
+    //         imageView.setImage(new Image("/src/images/fisherman-2.gif"));
+    //     } else {
+    //         imageView.setImage(new Image("/src/images/fishingnet.gif"));
+    //     }
 
-        pane.getChildren().add(imageView);
-    }
+    //     pane.getChildren().add(imageView);
+    // }
 
-    protected void preparation() {
+    protected void preparation() { //concrete method
         System.out.println("Start fishing for " + fishType);
         // Display message to user in JavaFX
     }
 
-    protected abstract void throwFishingEquip();
+    protected abstract void throwFishingEquip(); //abstract method
 
-    protected void waitingForFish() {
+    protected void waitingForFish() {   //concrete method
         System.out.println("Waiting...");
         // Display waiting message to user in JavaFX
     }
 
-    protected abstract void pullFishingEquip();
+    protected abstract void pullFishingEquip(); //abstract method
 
-    protected void showFish() {
+    protected void showFish() { //concrete method
         System.out.println("You have caught " + fishType + " fish!");
         // Display caught fish message to user in JavaFX
     }
