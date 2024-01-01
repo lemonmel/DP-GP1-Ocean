@@ -1,11 +1,24 @@
 package ocean;
 
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+
+import java.util.List;
+import java.util.Map;
 
 public class Fish extends OceanCreature {
 
+	private final static Map<Color, List<String>> colorImagePathMap = Map.of(
+			Color.RED, List.of("images/mackeralL-red.gif", "images/mackeralR-red.gif"),
+			Color.ORANGE, List.of("images/mackeralL-orange.gif", "images/mackeralR-orange.gif"),
+			Color.GREEN, List.of("images/mackeralL-green.gif", "images/mackeralR-green.gif"),
+			Color.BLUE, List.of("images/mackeralL.gif", "images/mackeralR.gif"),
+			Color.PURPLE, List.of("images/mackeralL-purple.gif", "images/mackeralR-purple.gif")
+	);
+
 	public Fish() {
 		fishSize = 180;
+		type = OceanCreatureType.Fish;
 		leftimage = new Image("images/mackeralL.gif", fishSize, fishSize, true, true);
 		rightimage = new Image("images/mackeralR.gif", fishSize, fishSize, true, true);
 	}
@@ -26,5 +39,12 @@ public class Fish extends OceanCreature {
 		} else {
 			changeYdirection();
 		}
+	}
+
+	@Override
+	public void changeColor(Color color) {
+		addCurrentImagesToHistory();
+		var path = colorImagePathMap.get(color);
+		setImageByPath(path.get(0), path.get(1));
 	}
 }

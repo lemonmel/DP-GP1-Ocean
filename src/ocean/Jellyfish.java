@@ -1,17 +1,38 @@
 package ocean;
 
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+
+import java.util.List;
+import java.util.Map;
 
 public class Jellyfish extends OceanCreature {
    private int floating = 0;
    private int stay = 0;
 
+   private final static Map<Color, List<String>> colorImagePathMap = Map.of(
+           Color.RED, List.of("images/jellyfish-red.gif", "images/jellyfish-red.gif"),
+           Color.ORANGE, List.of("images/jellyfish-orange.gif", "images/jellyfish-orange.gif"),
+           Color.GREEN, List.of("images/jellyfish-green.gif", "images/jellyfish-green.gif"),
+           Color.BLUE, List.of("images/jellyfish-blue.gif", "images/jellyfish-blue.gif"),
+           Color.PURPLE, List.of("images/jellyfish.gif", "images/jellyfish.gif")
+   );
+
    public Jellyfish() {
       fishSize = 100;
+      type = OceanCreatureType.JellyFish;
       leftimage = new Image("images/jellyfish.gif", fishSize, fishSize, true, true);
       rightimage = leftimage;
    }
 
+   public void setLeftImage(Image leftimage){
+		this.leftimage = leftimage;
+	}
+
+	public void setRightImage(Image rightimage){
+		this.rightimage = rightimage;
+	}
+   
    @Override
    public void move(double tankheight, double tankwidth) {
       Image image = getImage();
@@ -37,5 +58,12 @@ public class Jellyfish extends OceanCreature {
             stay = 0;
          }
       }
+   }
+
+   @Override
+   public void changeColor(Color color) {
+      addCurrentImagesToHistory();
+      var path = colorImagePathMap.get(color);
+      setImageByPath(path.get(0), path.get(1));
    }
 }

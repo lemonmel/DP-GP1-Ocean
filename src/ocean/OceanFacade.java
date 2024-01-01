@@ -14,9 +14,11 @@ public class OceanFacade {
         ocean = Ocean.getInstance();
     }
 
-    public void addOceanCreature(int choice) {
+    public OceanCreature addOceanCreature(int choice) {
         OceanCreature newCreature = factory.create(choice);
         ocean.addOceanCreature(newCreature);
+
+        return newCreature;
     }
 
     public Pane getOceanPane() {
