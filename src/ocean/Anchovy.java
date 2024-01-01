@@ -1,13 +1,26 @@
 package ocean;
 
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+
+import java.util.List;
+import java.util.Map;
 
 public class Anchovy extends OceanCreature {
+
+   private final static Map<Color, List<String>> colorImagePathMap = Map.of(
+           Color.RED, List.of("images/anchovyL-red.gif", "images/anchovyR-red.gif"),
+           Color.ORANGE, List.of("images/anchovyL-orange.gif", "images/anchovyR-orange.gif"),
+           Color.GREEN, List.of("images/anchovyL-green.gif", "images/anchovyR-green.gif"),
+           Color.BLUE, List.of("images/anchovyL.gif", "images/anchovyR.gif"),
+           Color.PURPLE, List.of("images/anchovyL-purple.gif", "images/anchovyR-purple.gif")
+   );
 
    public Anchovy() {
       xspeed = 0.8;
       yspeed = 0.8;
       fishSize = 200;
+      type = OceanCreatureType.Anchovy;
       leftimage = new Image("images/anchovyL.gif", fishSize, fishSize, true, true);
       rightimage = new Image("images/anchovyR.gif", fishSize, fishSize, true, true);
    }
@@ -28,5 +41,12 @@ public class Anchovy extends OceanCreature {
       } else {
          changeYdirection();
       }
+   }
+
+   @Override
+   public void changeColor(Color color) {
+      addCurrentImagesToHistory();
+      var path = colorImagePathMap.get(color);
+      setImageByPath(path.get(0), path.get(1));
    }
 }

@@ -1,7 +1,9 @@
 package ocean;
 
+import javafx.event.ActionEvent;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 
 public class OceanFacade {
     OceanCreatureFactory factory;
@@ -14,9 +16,11 @@ public class OceanFacade {
         ocean = Ocean.getInstance();
     }
 
-    public void addOceanCreature(int choice) {
+    public OceanCreature addOceanCreature(int choice) {
         OceanCreature newCreature = factory.create(choice);
         ocean.addOceanCreature(newCreature);
+
+        return newCreature;
     }
 
     public Pane getOceanPane() {
@@ -51,5 +55,15 @@ public class OceanFacade {
         terrainStrategy = new Rock(oceanPane);
         ocean.setTerrainStrategy(terrainStrategy);
         ocean.performFloor();
+    }
+
+    public void addOceanCreatureColor(ActionEvent e, Color color) {
+        Command changeColorCommand = new ChangeColorCommand(ocean.getOceanCreatures(), e, color);
+        changeColorCommand.execute();
+    }
+
+    public void undoOceanCreatureColor(ActionEvent e) {
+        Command changeColorCommand = new UndoColorCommand(ocean.getOceanCreatures(), e);
+        changeColorCommand.execute();
     }
 }

@@ -1,6 +1,12 @@
 package ocean;
 
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.*;
+import javafx.scene.paint.Color;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
 
 public abstract class OceanCreature {
 	double xspeed = 0.5;
@@ -10,6 +16,9 @@ public abstract class OceanCreature {
 	Image leftimage, rightimage;
 	double fishSize;
 	ImageView view = new ImageView(); // holds the image and current position
+	OceanCreatureType type;
+
+	Stack<List<String>> imagePathsHistory = new Stack<>();
 
 	public OceanCreature() {
 		view.setX(MyOceanApp.INIT_TANK_WD / 10); // the initial fish location
@@ -24,6 +33,21 @@ public abstract class OceanCreature {
 
 	public Image getImage() {
 		return xspeed >= 0 ? rightimage : leftimage;
+	}
+
+	public void setImageByPath(String path) {
+		var image = createImageByPath(path);
+		this.leftimage = image;
+		this.rightimage = image;
+	}
+
+	public void setImageByPath(String leftImagePath, String rightImagePath) {
+		this.leftimage = createImageByPath(leftImagePath);
+		this.rightimage = createImageByPath(rightImagePath);
+	}
+
+	public Image createImageByPath(String path) {
+		return new Image(path, this.fishSize, this.fishSize, true, true);
 	}
 
 	public double moveXY(double pos, double speed, double pct) {
@@ -51,5 +75,23 @@ public abstract class OceanCreature {
 
 	private boolean changesDirection(double frequency) {
 		return Math.random() * 100 < frequency;
+	}
+
+	public abstract void changeColor(Color color);
+
+	public void undoColor() {
+		if (imagePathsHistory.isEmpty()) {
+			return;
+		}
+
+		var lastImagePaths = imagePathsHistory.pop();
+		setImageByPath(lastImagePaths.get(0), lastImagePaths.get(1));
+	}
+
+	public void addCurrentImagesToHistory() {
+		List<String> imagePaths = new ArrayList<>();
+		imagePaths.add(leftimage.getUrl());
+		imagePaths.add(rightimage.getUrl());
+		imagePathsHistory.add(imagePaths);
 	}
 }

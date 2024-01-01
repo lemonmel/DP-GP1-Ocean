@@ -2,10 +2,12 @@ package ocean;
 
 import javafx.application.Application;
 
-import java.io.File;
-import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 import javafx.animation.AnimationTimer;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -50,19 +52,12 @@ public class MyOceanApp extends Application {
 
    private MenuBar createMenuBar(OceanFacade facade) {
       Menu createCreatures = new Menu("> Add ");
-      MenuItem puffer = new MenuItem("Mackeral");
-      puffer.setOnAction(e -> facade.addOceanCreature(1));
-      MenuItem crab = new MenuItem("Crab");
-      crab.setOnAction(e -> facade.addOceanCreature(2));
-      MenuItem jellyfish = new MenuItem("Jellyfish");
-      jellyfish.setOnAction(e -> facade.addOceanCreature(3));
-      MenuItem anchovy = new MenuItem("Anchovy");
-      anchovy.setOnAction(e -> facade.addOceanCreature(4));
-      MenuItem turtle = new MenuItem("Turtle");
-      turtle.setOnAction(e -> facade.addOceanCreature(5));
-      MenuItem shark = new MenuItem("Shark");
-      shark.setOnAction(e -> facade.addOceanCreature(6));
-      createCreatures.getItems().addAll(puffer, crab, jellyfish, anchovy, turtle, shark);
+      for (int i = 0; i < OceanCreatureType.values().length; i++) {
+         MenuItem menuItem = new MenuItem(OceanCreatureType.values()[i].name());
+         int choice = i + 1;
+         menuItem.setOnAction(e -> facade.addOceanCreature(choice));
+         createCreatures.getItems().add(menuItem);
+      }
 
       Menu changeTerrain = new Menu("> Change Terrain");
       MenuItem sand = new MenuItem("Sandy");
@@ -80,11 +75,53 @@ public class MyOceanApp extends Application {
       night.setOnAction(e -> facade.setNighttimeStrategy(p, backgroundImage));
       changeMode.getItems().addAll(day, night);
 
-      Menu changeColour = new Menu("> Change Colour");
+      Menu changeColour = createChangeColourMenu(facade);
+
       Menu fish = new Menu("> Fishing");
       MenuBar bar = new MenuBar();
       bar.getMenus().addAll(createCreatures, changeTerrain, changeMode, changeColour, fish);
       return bar;
+   }
+
+   private Menu createChangeColourMenu(OceanFacade facade) {
+      Menu changeColourMenu = new Menu("> Change Colour");
+      List<Menu> creatureMenus = createOceanCreatureMenus();
+
+      Color[] colors = { Color.RED, Color.ORANGE, Color.GREEN, Color.BLUE, Color.PURPLE };
+      for (Menu creatureMenu : creatureMenus) {
+         Menu addColor = new Menu("Add Color");
+         MenuItem undoColor = new MenuItem("Undo Color");
+
+         for (Color color : colors) {
+            Rectangle colorBox = createColorBox(color);
+            MenuItem colorMenuItem = new MenuItem("", colorBox);
+            colorMenuItem.setOnAction(e -> facade.addOceanCreatureColor(e, color));
+            addColor.getItems().add(colorMenuItem);
+         }
+
+         undoColor.setOnAction(e -> facade.undoOceanCreatureColor(e));
+
+         changeColourMenu.getItems().add(creatureMenu);
+         creatureMenu.getItems().addAll(addColor, undoColor);
+      }
+      return changeColourMenu;
+   }
+
+   private static List<Menu> createOceanCreatureMenus() {
+      List<Menu> creatureMenus = new ArrayList<>();
+
+      for (OceanCreatureType creatureType : OceanCreatureType.values()) {
+         Menu menu = new Menu(creatureType.name());
+         creatureMenus.add(menu);
+      }
+
+      return creatureMenus;
+   }
+
+   private Rectangle createColorBox(Color color) {
+      Rectangle box = new Rectangle(20, 20); // Define the size of the colored box
+      box.setFill(color); // Set the fill color of the rectangle
+      return box;
    }
 
    public static void main(String[] args) {

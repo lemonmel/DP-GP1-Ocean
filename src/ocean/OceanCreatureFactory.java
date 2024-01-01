@@ -4,7 +4,7 @@ public class OceanCreatureFactory {
     public OceanCreature create(int choice) {
         OceanCreature oc;
         if (choice == 1) {
-            oc = new Fish();
+            oc = new Mackeral();
         } else if (choice == 2) {
             oc = new Crab();
         } else if (choice == 3) {

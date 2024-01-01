@@ -23,6 +23,10 @@ public class Ocean {
       return pane;
    }
 
+   public List<OceanCreature> getOceanCreatures() {
+      return oceanCreatures;
+   }
+
    public void addOceanCreature(OceanCreature oc) {
       oceanCreatures.add(oc);
       pane.getChildren().add(oc.getView());
