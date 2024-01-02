@@ -1,6 +1,5 @@
 package ocean;
 
-import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.*;
 import javafx.scene.paint.Color;
 
@@ -21,8 +20,8 @@ public abstract class OceanCreature {
 	Stack<List<String>> imagePathsHistory = new Stack<>();
 
 	public OceanCreature() {
-		view.setX(MyOceanApp.INIT_TANK_WD / 10); // the initial fish location
-		view.setY(MyOceanApp.INIT_TANK_HT / 2);
+		view.setX(Ocean.getOceanPane().getWidth() / 10); // the initial fish location
+		view.setY(Ocean.getOceanPane().getWidth() / 2);
 	}
 
 	public abstract void move(double tankheight, double tankwidth);

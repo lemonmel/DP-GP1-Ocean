@@ -57,3 +57,25 @@
     -fx-text-fill: white;
     -fx-background-color: black;
 }
+
+/* Alert */
+
+.dialog-pane, .dialog-pane .button{
+    -fx-border-color:black;
+    -fx-border-width:2.0px;
+    -fx-background-color: white;
+}
+
+.dialog-pane .label, .dialog-pane .button{
+    -fx-font-family:'VT323', monospace; /* Replace 'YourFontName' with your font family */
+    -fx-font-size: 18px; /* Font size */
+}
+
+.dialog-pane .button:hover .label{
+    -fx-text-fill: white;
+    -fx-background-color: black;
+}
+
+.dialog-pane .button:hover{
+    -fx-background-color: black;
+}

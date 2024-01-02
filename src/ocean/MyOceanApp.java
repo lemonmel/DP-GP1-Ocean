@@ -13,8 +13,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Font;
 
 public class MyOceanApp extends Application {
@@ -78,6 +76,12 @@ public class MyOceanApp extends Application {
       Menu changeColour = createChangeColourMenu(facade);
 
       Menu fish = new Menu("> Fishing");
+      MenuItem rod = new MenuItem("Rod for Mackeral/Anchovy");
+      rod.setOnAction(e -> facade.fishByRod());
+      MenuItem net = new MenuItem("Net for Jellyfish/Crab");
+      net.setOnAction(e -> facade.fishByNet());
+      fish.getItems().addAll(rod, net);
+
       MenuBar bar = new MenuBar();
       bar.getMenus().addAll(createCreatures, changeTerrain, changeMode, changeColour, fish);
       return bar;

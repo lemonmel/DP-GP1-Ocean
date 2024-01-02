@@ -2,7 +2,6 @@ package ocean;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.MenuItem;
-import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 import java.util.List;

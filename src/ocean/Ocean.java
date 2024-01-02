@@ -8,7 +8,7 @@ import javafx.scene.layout.Pane;
 public class Ocean {
    private static Ocean uniqueInstance = new Ocean();
    List<OceanCreature> oceanCreatures = new ArrayList<>();
-   Pane pane = new Pane();
+   private static Pane pane = new Pane();
    BackgroundStrategy backgroundStrategy;
    TerrainStrategy terrainStrategy;
 
@@ -19,7 +19,7 @@ public class Ocean {
       return uniqueInstance;
    }
 
-   public Pane getOceanPane() {
+   public static Pane getOceanPane() {
       return pane;
    }
 
@@ -30,6 +30,11 @@ public class Ocean {
    public void addOceanCreature(OceanCreature oc) {
       oceanCreatures.add(oc);
       pane.getChildren().add(oc.getView());
+   }
+
+   public void removeOceanCreature(OceanCreature oc) {
+      oceanCreatures.remove(oc);
+      pane.getChildren().remove(oc.getView());
    }
 
    public void move(double height, double width) {

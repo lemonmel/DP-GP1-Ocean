@@ -8,12 +8,14 @@ import javafx.scene.paint.Color;
 public class OceanFacade {
     OceanCreatureFactory factory;
     Ocean ocean;
+    Pane pane;
     BackgroundStrategy backgroundStrategy;
     TerrainStrategy terrainStrategy;
 
     public OceanFacade() {
         factory = new OceanCreatureFactory();
         ocean = Ocean.getInstance();
+        pane = Ocean.getOceanPane();
     }
 
     public OceanCreature addOceanCreature(int choice) {
@@ -24,7 +26,7 @@ public class OceanFacade {
     }
 
     public Pane getOceanPane() {
-        return ocean.getOceanPane();
+        return pane;
     }
 
     public void setDaytimeStrategy(Pane oceanPane, Image backgroundImage) {
@@ -65,5 +67,15 @@ public class OceanFacade {
     public void undoOceanCreatureColor(ActionEvent e) {
         Command changeColorCommand = new UndoColorCommand(ocean.getOceanCreatures(), e);
         changeColorCommand.execute();
+    }
+
+    public void fishByRod() {
+        FishingTemplate fishing = new FishingRod();
+        fishing.performFishing();
+    }
+
+    public void fishByNet() {
+        FishingTemplate fishing = new FishingNet();
+        fishing.performFishing();
     }
 }
