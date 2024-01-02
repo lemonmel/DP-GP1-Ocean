@@ -6,7 +6,7 @@ import javafx.scene.paint.Color;
 import java.util.List;
 import java.util.Map;
 
-public class Mackeral extends OceanCreature {
+public class Mackerel extends OceanCreature {
 
 	private final static Map<Color, List<String>> colorImagePathMap = Map.of(
 			Color.RED, List.of("images/mackeralL-red.gif", "images/mackeralR-red.gif"),
@@ -15,9 +15,9 @@ public class Mackeral extends OceanCreature {
 			Color.BLUE, List.of("images/mackeralL.gif", "images/mackeralR.gif"),
 			Color.PURPLE, List.of("images/mackeralL-purple.gif", "images/mackeralR-purple.gif"));
 
-	public Mackeral() {
+	public Mackerel() {
 		fishSize = 180;
-		type = OceanCreatureType.Mackeral;
+		type = OceanCreatureType.Mackerel;
 		leftimage = new Image("images/mackeralL.gif", fishSize, fishSize, true, true);
 		rightimage = new Image("images/mackeralR.gif", fishSize, fishSize, true, true);
 	}

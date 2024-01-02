@@ -21,7 +21,7 @@ public abstract class OceanCreature {
 
 	public OceanCreature() {
 		view.setX(Ocean.getOceanPane().getWidth() / 10); // the initial fish location
-		view.setY(Ocean.getOceanPane().getWidth() / 2);
+		view.setY(Ocean.getOceanPane().getHeight() / 2);
 	}
 
 	public abstract void move(double tankheight, double tankwidth);
@@ -61,7 +61,7 @@ public abstract class OceanCreature {
 	}
 
 	public boolean legalYMove(double pos, double size, double limit) {
-		return (pos >= 0) && (pos + size <= limit && pos + size >= limit * 0.65);
+		return (pos >= limit * 0.4) && (pos + size) <= limit;
 	}
 
 	public void changeXdirection() {

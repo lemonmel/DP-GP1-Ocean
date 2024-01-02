@@ -21,7 +21,7 @@ public class FishingRod extends FishingTemplate {
     boolean checkCaught() {
         ArrayList<OceanCreatureType> types = new ArrayList<>();
         types.add(OceanCreatureType.Anchovy);
-        types.add(OceanCreatureType.Mackeral);
+        types.add(OceanCreatureType.Mackerel);
 
         List<OceanCreature> oceanCreatures = Ocean.getInstance().getOceanCreatures();
         System.out.println(oceanCreatures);

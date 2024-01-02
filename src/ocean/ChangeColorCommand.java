@@ -26,7 +26,7 @@ public class ChangeColorCommand implements Command {
         List<OceanCreature> oceanCreatures = switch (oceanCreatureMenu.getText()) {
             case "Anchovy" -> getManyOceanCreaturesOfType(OceanCreatureType.Anchovy, this.oceanCreatures);
             case "Crab" -> getManyOceanCreaturesOfType(OceanCreatureType.Crab, this.oceanCreatures);
-            case "Mackeral" -> getManyOceanCreaturesOfType(OceanCreatureType.Mackeral, this.oceanCreatures);
+            case "Mackeral" -> getManyOceanCreaturesOfType(OceanCreatureType.Mackerel, this.oceanCreatures);
             case "Jellyfish" -> getManyOceanCreaturesOfType(OceanCreatureType.Jellyfish, this.oceanCreatures);
             case "Shark" -> getManyOceanCreaturesOfType(OceanCreatureType.Shark, this.oceanCreatures);
             case "Turtle" -> getManyOceanCreaturesOfType(OceanCreatureType.Turtle, this.oceanCreatures);

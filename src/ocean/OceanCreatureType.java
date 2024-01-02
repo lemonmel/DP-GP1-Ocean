@@ -1,7 +1,7 @@
 package ocean;
 
 public enum OceanCreatureType {
-    Mackeral,
+    Mackerel,
     Crab,
     Jellyfish,
     Anchovy,
