@@ -76,7 +76,7 @@ public class MyOceanApp extends Application {
       Menu changeColour = createChangeColourMenu(facade);
 
       Menu fish = new Menu("> Fishing");
-      MenuItem rod = new MenuItem("Rod for Mackeral/Anchovy");
+      MenuItem rod = new MenuItem("Rod for Mackerel/Anchovy");
       rod.setOnAction(e -> facade.fishByRod());
       MenuItem net = new MenuItem("Net for Jellyfish/Crab");
       net.setOnAction(e -> facade.fishByNet());
