@@ -24,8 +24,6 @@ public abstract class OceanCreature {
 		view.setY(Ocean.getOceanPane().getHeight() / 2);
 	}
 
-	public abstract void move(double tankheight, double tankwidth);
-
 	public ImageView getView() {
 		return view;
 	}
@@ -48,6 +46,8 @@ public abstract class OceanCreature {
 	public Image createImageByPath(String path) {
 		return new Image(path, this.size, this.size, true, true);
 	}
+
+	public abstract void move(double tankheight, double tankwidth);
 
 	public double moveXY(double pos, double speed, double pct) {
 		if (changesDirection(pct))

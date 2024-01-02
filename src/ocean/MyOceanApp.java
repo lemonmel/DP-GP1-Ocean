@@ -41,8 +41,8 @@ public class MyOceanApp extends Application {
       stage.setTitle("Ocean");
       stage.show();
 
-      oceanFacade.setDaytimeStrategy(p, backgroundImage);
-      oceanFacade.setSand(p);
+      oceanFacade.setDaytimeStrategy(backgroundImage);
+      oceanFacade.setSand();
 
       AnimationTimer timer = new CreatureAnimation(Ocean.getInstance(), p);
       timer.start();
@@ -59,18 +59,18 @@ public class MyOceanApp extends Application {
 
       Menu changeTerrain = new Menu("> Change Terrain");
       MenuItem sand = new MenuItem("Sandy");
-      sand.setOnAction(e -> facade.setSand(p));
+      sand.setOnAction(e -> facade.setSand());
       MenuItem grass = new MenuItem("Grass");
-      grass.setOnAction(e -> facade.setGrass(p));
+      grass.setOnAction(e -> facade.setGrass());
       MenuItem rock = new MenuItem("Rocky");
-      rock.setOnAction(e -> facade.setRock(p));
+      rock.setOnAction(e -> facade.setRock());
       changeTerrain.getItems().addAll(sand, grass, rock);
 
       Menu changeMode = new Menu("> Change Mode");
       MenuItem day = new MenuItem("Day Mode");
-      day.setOnAction(e -> facade.setDaytimeStrategy(p, backgroundImage));
+      day.setOnAction(e -> facade.setDaytimeStrategy(backgroundImage));
       MenuItem night = new MenuItem("Night Mode");
-      night.setOnAction(e -> facade.setNighttimeStrategy(p, backgroundImage));
+      night.setOnAction(e -> facade.setNighttimeStrategy(backgroundImage));
       changeMode.getItems().addAll(day, night);
 
       Menu changeColour = createChangeColourMenu(facade);

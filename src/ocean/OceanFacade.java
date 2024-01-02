@@ -6,9 +6,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
 public class OceanFacade {
-    OceanCreatureFactory factory;
     Ocean ocean;
     Pane pane;
+    OceanCreatureFactory factory;
     BackgroundStrategy backgroundStrategy;
     TerrainStrategy terrainStrategy;
 
@@ -18,6 +18,10 @@ public class OceanFacade {
         pane = Ocean.getOceanPane();
     }
 
+    public Pane getOceanPane() {
+        return pane;
+    }
+
     public OceanCreature addOceanCreature(int choice) {
         OceanCreature newCreature = factory.create(choice);
         ocean.addOceanCreature(newCreature);
@@ -25,36 +29,32 @@ public class OceanFacade {
         return newCreature;
     }
 
-    public Pane getOceanPane() {
-        return pane;
-    }
-
-    public void setDaytimeStrategy(Pane oceanPane, Image backgroundImage) {
-        backgroundStrategy = new Day(oceanPane, backgroundImage);
+    public void setDaytimeStrategy(Image backgroundImage) {
+        backgroundStrategy = new Day(pane, backgroundImage);
         ocean.setBackgroundStrategy(backgroundStrategy);
         ocean.performBackground();
     }
 
-    public void setNighttimeStrategy(Pane oceanPane, Image backgroundImage) {
-        backgroundStrategy = new Night(oceanPane, backgroundImage);
+    public void setNighttimeStrategy(Image backgroundImage) {
+        backgroundStrategy = new Night(pane, backgroundImage);
         ocean.setBackgroundStrategy(backgroundStrategy);
         ocean.performBackground();
     }
 
-    public void setSand(Pane oceanPane) {
-        terrainStrategy = new Sand(oceanPane);
+    public void setSand() {
+        terrainStrategy = new Sand(pane);
         ocean.setTerrainStrategy(terrainStrategy);
         ocean.performFloor();
     }
 
-    public void setGrass(Pane oceanPane) {
-        terrainStrategy = new Grass(oceanPane);
+    public void setGrass() {
+        terrainStrategy = new Grass(pane);
         ocean.setTerrainStrategy(terrainStrategy);
         ocean.performFloor();
     }
 
-    public void setRock(Pane oceanPane) {
-        terrainStrategy = new Rock(oceanPane);
+    public void setRock() {
+        terrainStrategy = new Rock(pane);
         ocean.setTerrainStrategy(terrainStrategy);
         ocean.performFloor();
     }
