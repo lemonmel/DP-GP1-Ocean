@@ -16,10 +16,10 @@ public class Mackerel extends OceanCreature {
 			Color.PURPLE, List.of("images/mackeralL-purple.gif", "images/mackeralR-purple.gif"));
 
 	public Mackerel() {
-		fishSize = 180;
+		size = 180;
 		type = OceanCreatureType.Mackerel;
-		leftimage = new Image("images/mackeralL.gif", fishSize, fishSize, true, true);
-		rightimage = new Image("images/mackeralR.gif", fishSize, fishSize, true, true);
+		leftimage = new Image("images/mackeralL.gif", size, size, true, true);
+		rightimage = new Image("images/mackeralR.gif", size, size, true, true);
 	}
 
 	@Override

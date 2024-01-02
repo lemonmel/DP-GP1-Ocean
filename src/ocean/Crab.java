@@ -18,9 +18,9 @@ public class Crab extends OceanCreature {
 
    public Crab() {
       xspeed = 0.8;
-      fishSize = 100;
+      size = 100;
       type = OceanCreatureType.Crab;
-      leftimage = new Image("images/crab.gif", fishSize, fishSize, true, true);
+      leftimage = new Image("images/crab.gif", size, size, true, true);
       rightimage = leftimage;
       view.setY(Ocean.getOceanPane().getLayoutBounds().getHeight() - leftimage.getHeight() * 1.2);
    }

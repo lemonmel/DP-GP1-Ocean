@@ -13,7 +13,7 @@ public abstract class OceanCreature {
 	double xDirectionChangePct = 0.1; // the fish changes horizontal direction 0.1% of the time
 	double yDirectionChangePct = 0.4; // the fish changes vertical direction 0.4% of the time
 	Image leftimage, rightimage;
-	double fishSize;
+	double size;
 	ImageView view = new ImageView(); // holds the image and current position
 	OceanCreatureType type;
 
@@ -46,7 +46,7 @@ public abstract class OceanCreature {
 	}
 
 	public Image createImageByPath(String path) {
-		return new Image(path, this.fishSize, this.fishSize, true, true);
+		return new Image(path, this.size, this.size, true, true);
 	}
 
 	public double moveXY(double pos, double speed, double pct) {

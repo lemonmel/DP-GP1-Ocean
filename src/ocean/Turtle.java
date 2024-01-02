@@ -9,18 +9,17 @@ import java.util.Map;
 public class Turtle extends OceanCreature {
 
    private final static Map<Color, List<String>> colorImagePathMap = Map.of(
-           Color.RED, List.of("images/turtleL-red.gif", "images/turtleR-red.gif"),
-           Color.ORANGE, List.of("images/turtleL-orange.gif", "images/turtleR-orange.gif"),
-           Color.GREEN, List.of("images/turtleL.gif", "images/turtleR.gif"),
-           Color.BLUE, List.of("images/turtleL-blue.gif", "images/turtleR-blue.gif"),
-           Color.PURPLE, List.of("images/turtleL-purple.gif", "images/turtleR-purple.gif")
-   );
+         Color.RED, List.of("images/turtleL-red.gif", "images/turtleR-red.gif"),
+         Color.ORANGE, List.of("images/turtleL-orange.gif", "images/turtleR-orange.gif"),
+         Color.GREEN, List.of("images/turtleL.gif", "images/turtleR.gif"),
+         Color.BLUE, List.of("images/turtleL-blue.gif", "images/turtleR-blue.gif"),
+         Color.PURPLE, List.of("images/turtleL-purple.gif", "images/turtleR-purple.gif"));
 
    public Turtle() {
-      fishSize = 200;
+      size = 200;
       type = OceanCreatureType.Turtle;
-      leftimage = new Image("images/turtleL.gif", fishSize, fishSize, true, true);
-      rightimage = new Image("images/turtleR.gif", fishSize, fishSize, true, true);
+      leftimage = new Image("images/turtleL.gif", size, size, true, true);
+      rightimage = new Image("images/turtleR.gif", size, size, true, true);
    }
 
    @Override

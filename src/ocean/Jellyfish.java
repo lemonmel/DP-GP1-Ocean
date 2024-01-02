@@ -18,9 +18,9 @@ public class Jellyfish extends OceanCreature {
          Color.PURPLE, List.of("images/jellyfish.gif", "images/jellyfish.gif"));
 
    public Jellyfish() {
-      fishSize = 100;
+      size = 100;
       type = OceanCreatureType.Jellyfish;
-      leftimage = new Image("images/jellyfish.gif", fishSize, fishSize, true, true);
+      leftimage = new Image("images/jellyfish.gif", size, size, true, true);
       rightimage = leftimage;
    }
 
