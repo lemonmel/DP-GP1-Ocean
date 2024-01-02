@@ -48,8 +48,6 @@ public abstract class FishingTemplate {
 
     void throwFishingEquip() {
         // animate fishing equipment
-        System.out.println("This is step 3");
-
         double oceanStopPoint = p.getHeight() * 0.8;
         KeyValue circleYValue = new KeyValue(fishingEquip.centerYProperty(), oceanStopPoint);
         KeyValue lineEndYValue = new KeyValue(fishingLine.endYProperty(), oceanStopPoint);

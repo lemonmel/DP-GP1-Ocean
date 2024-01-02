@@ -26,7 +26,6 @@ public class FishingNet extends FishingTemplate {
 
         List<OceanCreature> oceanCreatures = Ocean.getInstance().getOceanCreatures();
         for (OceanCreature oc : oceanCreatures) {
-            System.out.println(oceanCreatures);
             if (types.contains(oc.type)) {
                 caughtOceanCreature = oc;
                 return true;

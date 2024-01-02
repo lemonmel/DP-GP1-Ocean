@@ -24,8 +24,8 @@ public class FishingRod extends FishingTemplate {
         types.add(OceanCreatureType.Mackeral);
 
         List<OceanCreature> oceanCreatures = Ocean.getInstance().getOceanCreatures();
+        System.out.println(oceanCreatures);
         for (OceanCreature oc : oceanCreatures) {
-            System.out.println(oceanCreatures);
             if (types.contains(oc.type)) {
                 caughtOceanCreature = oc;
                 return true;

@@ -71,11 +71,6 @@
     -fx-font-size: 18px; /* Font size */
 }
 
-.dialog-pane .button:hover .label{
-    -fx-text-fill: white;
-    -fx-background-color: black;
-}
-
 .dialog-pane .button:hover{
-    -fx-background-color: black;
+    -fx-background-color: lightgrey;
 }
