@@ -11,6 +11,8 @@ public class OceanFacade {
     OceanCreatureFactory factory;
     BackgroundStrategy backgroundStrategy;
     TerrainStrategy terrainStrategy;
+    Command command;
+    FishingTemplate fishing;
 
     public OceanFacade() {
         factory = new OceanCreatureFactory();
@@ -60,22 +62,22 @@ public class OceanFacade {
     }
 
     public void addOceanCreatureColor(ActionEvent e, Color color) {
-        Command changeColorCommand = new ChangeColorCommand(ocean.getOceanCreatures(), e, color);
-        changeColorCommand.execute();
+        command = new ChangeColorCommand(ocean.getOceanCreatures(), e, color);
+        command.execute();
     }
 
     public void undoOceanCreatureColor(ActionEvent e) {
-        Command changeColorCommand = new UndoColorCommand(ocean.getOceanCreatures(), e);
-        changeColorCommand.execute();
+        command = new UndoColorCommand(ocean.getOceanCreatures(), e);
+        command.execute();
     }
 
     public void fishByRod() {
-        FishingTemplate fishing = new FishingRod();
+        fishing = new FishingRod();
         fishing.performFishing();
     }
 
     public void fishByNet() {
-        FishingTemplate fishing = new FishingNet();
+        fishing = new FishingNet();
         fishing.performFishing();
     }
 }
