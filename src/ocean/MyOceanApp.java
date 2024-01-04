@@ -28,7 +28,7 @@ public class MyOceanApp extends Application {
       MenuBar bar = createMenuBar(oceanFacade);
       p.getChildren().add(bar);
 
-      Scene scene = new Scene(p, 690, 1000); // pane, initial width, initial height
+      Scene scene = new Scene(p, 710, 770); // pane, initial width, initial height
       scene.getStylesheets().add(getClass().getResource("/resources/styles.css").toExternalForm());
       stage.setScene(scene);
       stage.setTitle("Ocean");
