@@ -16,17 +16,10 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 
 public class MyOceanApp extends Application {
-   public static double INIT_TANK_HT = 1000;
-   public static double INIT_TANK_WD = 710;
    Pane p;
    Image backgroundImage;
 
    public void start(Stage stage) {
-      // String path = "background-music.mp3";
-      // Media media = new Media(Paths.get(path).toUri().toString());
-      // MediaPlayer mediaPlayer = new MediaPlayer(media);
-      // mediaPlayer.setAutoPlay(true);
-
       Font.loadFont(getClass().getResourceAsStream("/resources/SFPixelate.ttf"), 14);
       backgroundImage = new Image("/images/sea-background-2.gif");
       OceanFacade oceanFacade = new OceanFacade();
@@ -35,7 +28,7 @@ public class MyOceanApp extends Application {
       MenuBar bar = createMenuBar(oceanFacade);
       p.getChildren().add(bar);
 
-      Scene scene = new Scene(p, INIT_TANK_WD, INIT_TANK_HT);
+      Scene scene = new Scene(p, 690, 1000); // pane, initial width, initial height
       scene.getStylesheets().add(getClass().getResource("/resources/styles.css").toExternalForm());
       stage.setScene(scene);
       stage.setTitle("Ocean");

@@ -32,12 +32,6 @@ public abstract class OceanCreature {
 		return xspeed >= 0 ? rightimage : leftimage;
 	}
 
-	public void setImageByPath(String path) {
-		var image = createImageByPath(path);
-		this.leftimage = image;
-		this.rightimage = image;
-	}
-
 	public void setImageByPath(String leftImagePath, String rightImagePath) {
 		this.leftimage = createImageByPath(leftImagePath);
 		this.rightimage = createImageByPath(rightImagePath);

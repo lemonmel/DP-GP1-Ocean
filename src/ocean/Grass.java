@@ -13,7 +13,6 @@ public class Grass implements TerrainStrategy {
 
     public Grass(Pane oceanPane) {
         this.oceanPane = oceanPane;
-
     }
 
     public void applyFloor(ImageView imageBackImage) {
