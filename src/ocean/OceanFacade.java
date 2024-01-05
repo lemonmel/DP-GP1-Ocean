@@ -24,11 +24,9 @@ public class OceanFacade {
         return pane;
     }
 
-    public OceanCreature addOceanCreature(int choice) {
+    public void addOceanCreature(int choice) {
         OceanCreature newCreature = factory.create(choice);
         ocean.addOceanCreature(newCreature);
-
-        return newCreature;
     }
 
     public void setDaytimeStrategy(Image backgroundImage) {
