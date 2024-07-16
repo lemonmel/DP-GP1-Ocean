@@ -1,18 +1,16 @@
 # Design Pattern - GP1 - Ocean
+<img width="400" alt="Screenshot 2024-07-16 at 4 00 55 PM" src="https://github.com/user-attachments/assets/1fac873c-a37b-45f5-bb08-b700e0f9e820">
 
-The following steps are from https://openjfx.io/openjfx-docs/, under JavaFX and VisualStudioCode > Non-modular from IDE
 
-To run:
-1.Download all required JavaFX libraries (https://gluonhq.com/products/javafx/).
-2.In VSCode, import all JavaFX jar files to ‘Referenced Libraries’ under ‘Java Projects’ as shown in Figure 7.1a. If there is no Java Projects under the left panel, go to ‘extensions’ on the left and search for ‘Extension Pack for Java’ to download.
+### To run:
+> The following steps are from https://openjfx.io/openjfx-docs/, under JavaFX and VisualStudioCode > Non-modular from IDE
 
-Figure 7.1.1a: Referenced Libraries
 
-Figure 7.1.1b: Extensions Installation
-3.After importing, the settings.json under .vscode will be configured automatically. We have to configure ‘launch.json’.
-
-Figure 7.1.1c .vscode folder
-4.Configure ‘launch.json’ with code below:
+1. Download all required JavaFX libraries (https://gluonhq.com/products/javafx/).<br/>
+2. In VSCode, import all JavaFX jar files to ‘Referenced Libraries’ under ‘Java Projects’. If there is no Java Projects under the left panel, go to ‘extensions’ on the left and search for ‘Extension Pack for Java’ to download. <br/>
+3. After importing, the settings.json under .vscode will be configured automatically. We have to configure ‘launch.json’. <br/>
+4. Configure ‘launch.json’ with code below:
+```
 {
  // Use IntelliSense to learn about possible attributes.
  // Hover to view descriptions of existing attributes.
@@ -28,4 +26,5 @@ Figure 7.1.1c .vscode folder
      }
  ]
 }
-5.Run the main method in ocean/MyOceanApp class.
+```
+5. Run the main method in ocean/MyOceanApp class.
